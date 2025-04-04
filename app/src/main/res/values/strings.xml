@@ -2,4 +2,18 @@
     <string name="app_name">Test Android</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_select_option">Selecciona una opción para guardar una fotografía</string>
+    <string name="label_camera">Abrir cámara</string>
+    <string name="label_gallery">Abrir galería</string>
+    <string name="label_take_other_pic">Tomar otra fotografía</string>
+    <string name="img_saved_succesfully_message">Imagen guardada con éxito</string>
+    <string name="error_msg">Error</string>
+    <string name="permission_denied_msg">Permiso de cámara denegado</string>
+    <string name="img_prefix">IMG_</string>
+    <string name="extension_jpg">.jpg</string>
+    <string name="alert_message_title">Alerta</string>
+    <string name="alert_message_content">La imagen se almacenó de manera exitosa, ahora podrás tomar otra fotografía</string>
+    <string name="alert_message_content_permission_denied">Se denegó el permiso para usar la cámara del dispositivo de manera permanente. Actívalo desde Ajustes</string>
+    <string name="alert_positive_button">Aceptar</string>
+    <string name="message_permission_needed">Se necesita el permiso para usar la cámara.</string>
 </resources>

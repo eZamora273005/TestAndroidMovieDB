@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ezamora.testandroid.data.db.popular_movie.PopularMovie
 import com.ezamora.testandroid.databinding.FragmentProfileBinding
+import com.google.firebase.analytics.FirebaseAnalytics
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -65,6 +66,7 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        FirebaseAnalytics.getInstance(requireContext()).logEvent("prueba_evento", null)
         return binding.root
     }
 

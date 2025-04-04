@@ -17,6 +17,10 @@ class MoviesRepositoryImpl @Inject constructor(
         return safeApiCall { movieDBAPI.getTopRated() }
     }
 
+    override suspend fun getRecomended(): Result<PopularsModel> {
+        return safeApiCall { movieDBAPI.getRecomended() }
+    }
+
     private suspend fun <T> safeApiCall(apiCall: suspend () -> Response<T>): Result<T> {
         return try {
             val response = apiCall()

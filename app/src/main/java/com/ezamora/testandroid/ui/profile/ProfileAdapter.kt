@@ -11,7 +11,7 @@ import com.squareup.picasso.Picasso
 
 class ProfileAdapter : RecyclerView.Adapter<ProfileAdapter.ProfileViewHolder>() {
 
-    lateinit var moviesList : List<PopularMovie>
+    var moviesList : List<PopularMovie> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfileViewHolder {
         val view = parent.inflate(R.layout.item_profile,  false)

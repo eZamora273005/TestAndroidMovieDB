@@ -1,35 +1,35 @@
-package com.ezamora.testandroid.ui.movies
+package com.ezamora.testandroid.ui.recomended
 
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ezamora.testandroid.R
-import com.ezamora.testandroid.data.db.rated_movie.RatedMovie
+import com.ezamora.testandroid.data.db.recomended_movie.RecomendedMovie
 import com.ezamora.testandroid.databinding.ItemProfileBinding
 import com.ezamora.testandroid.utils.inflate
 import com.squareup.picasso.Picasso
 
-class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
+class RecomendedAdapter : RecyclerView.Adapter<RecomendedAdapter.RecomendedViewHolder>() {
 
-    var moviesList : List<RatedMovie> = emptyList()
+    var recomendedList : List<RecomendedMovie> = emptyList()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecomendedViewHolder {
         val view = parent.inflate(R.layout.item_profile,  false)
-        return MoviesViewHolder(view)
+        return RecomendedViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return moviesList.size
+        return recomendedList.size
     }
 
-    override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
-        val item = moviesList[position]
+    override fun onBindViewHolder(holder: RecomendedViewHolder, position: Int) {
+        val item = recomendedList[position]
         holder.bind(item)
     }
 
-    inner class MoviesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class RecomendedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = ItemProfileBinding.bind(itemView)
-        fun bind(movie : RatedMovie) = with(binding){
+        fun bind(movie : RecomendedMovie) = with(binding){
             tvTitle.text = movie.title
             tvOverview.text = movie.overview
 

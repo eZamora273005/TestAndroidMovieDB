@@ -16,7 +16,9 @@
         android:name="com.ezamora.testandroid.ui.movies.MoviesFragment"
         tools:layout="@layout/fragment_movies"/>
 
-    <!--<fragment
+    <fragment
         android:id="@+id/settingsFragment"
-        android:label="Settings" />-->
+        android:label="Settings"
+        android:name="com.ezamora.testandroid.ui.recomended.RecomendedMoviesFragment"
+        tools:layout="@layout/fragment_recomended_movies"/>
 </navigation>

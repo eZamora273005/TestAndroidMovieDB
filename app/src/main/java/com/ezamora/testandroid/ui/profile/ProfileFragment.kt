@@ -8,24 +8,19 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ezamora.testandroid.R
+import com.ezamora.testandroid.data.db.popular_movie.PopularMovie
 import com.ezamora.testandroid.databinding.FragmentProfileBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
-class ProfileFragment : Fragment(R.layout.fragment_profile) {
+class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
+
     private val viewModel : ProfileViewModel by viewModels()
 
     private lateinit var adapter : ProfileAdapter
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -40,9 +35,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private fun observer() {
         viewModel.movies.observe(this@ProfileFragment.viewLifecycleOwner) { result ->
             result.onSuccess { movies ->
-                adapter.moviesList = movies
-                binding.rvPopularMovies.adapter = adapter
-
+                handleSuccess(movies)
             }.onFailure { error ->
                 Toast.makeText(requireContext(), error.message, Toast.LENGTH_LONG).show()
             }
@@ -52,11 +45,16 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         }
     }
 
+    private fun handleSuccess(movies: List<PopularMovie>) {
+        adapter.moviesList = movies
+        adapter.notifyDataSetChanged()
+    }
+
     private fun initView() = with(binding) {
         rvPopularMovies.layoutManager = LinearLayoutManager(context)
         adapter = ProfileAdapter()
+        binding.rvPopularMovies.adapter = adapter
     }
-
 
     private fun fetchMovies() {
         viewModel.getMovies()
@@ -66,12 +64,12 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 }

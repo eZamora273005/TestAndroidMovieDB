@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.ezamora.testandroid.data.api.MovieDBAPI
 import com.ezamora.testandroid.data.db.popular_movie.PopularMovieDataBase
 import com.ezamora.testandroid.data.db.rated_movie.RatedMovieDataBase
+import com.ezamora.testandroid.data.db.recomended_movie.RecomendedMovieDatabase
 import com.ezamora.testandroid.data.repository.MoviesRepositoryImpl
 import com.ezamora.testandroid.domain.repository.MoviesRepository
 import dagger.Module
@@ -37,5 +38,13 @@ object RepositoryModule {
         app,
         RatedMovieDataBase::class.java,
         "rated-movie-db"
+    ).build()
+
+    @Provides
+    @Singleton
+    fun databaseRecomendedProvider(app: Application): RecomendedMovieDatabase = Room.databaseBuilder(
+        app,
+        RecomendedMovieDatabase::class.java,
+        "recomended-movie-db"
     ).build()
 }

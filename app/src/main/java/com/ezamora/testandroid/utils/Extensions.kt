@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import com.ezamora.testandroid.data.db.popular_movie.PopularMovie
 import com.ezamora.testandroid.data.db.rated_movie.RatedMovie
+import com.ezamora.testandroid.data.db.recomended_movie.RecomendedMovie
 
 fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = true): View =
     LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)
@@ -27,6 +28,21 @@ fun Movie.transformToPopular(): PopularMovie = PopularMovie(
 )
 
 fun Movie.transformToRated(): RatedMovie = RatedMovie(
+    0,
+    title,
+    overview,
+    release_date,
+    poster_path,
+    backdrop_path ?: poster_path,
+    original_language,
+    original_title,
+    popularity,
+    vote_average,
+    false,
+    id
+)
+
+fun Movie.transformToRecomended(): RecomendedMovie = RecomendedMovie(
     0,
     title,
     overview,

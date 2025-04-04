@@ -17,8 +17,8 @@ interface MovieDBAPI {
         @Query("api_key") apiKey: String = Constants.API_KEY
     ) : Response<PopularsModel>
 
-    @GET("movie/now_playing?api_key=TU_API_KEY&language=es-ES&page=1")
+    @GET("3/movie/now_playing?language=es-ES&page=1")
     suspend fun getRecomended(
         @Query("api_key") apiKey: String = Constants.API_KEY
-    ) : PopularsModel
+    ) : Response<PopularsModel>
 }

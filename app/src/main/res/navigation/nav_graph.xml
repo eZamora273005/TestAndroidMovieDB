@@ -21,4 +21,11 @@
         android:label="Settings"
         android:name="com.ezamora.testandroid.ui.recomended.RecomendedMoviesFragment"
         tools:layout="@layout/fragment_recomended_movies"/>
+
+    <fragment
+        android:id="@+id/imageFragment"
+        android:label="Images"
+        android:name="com.ezamora.testandroid.ui.addphotos.AddPhotosFragment"
+        tools:layout="@layout/fragment_add_photos"/>
+
 </navigation>

@@ -10,7 +10,7 @@
 *.iws
 *.ipr
 
-/google-services.json
+google-services.json
 /firebase/
 
 .DS_Store

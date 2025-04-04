@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.addphotos.AddPhotosFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvInstrucciones"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="@dimen/small_size"
+        android:text="@string/label_select_option"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutButtonsContainer"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tvInstrucciones">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/btnCamara"
+            android:layout_margin="@dimen/xs_margin_size"
+            android:text="@string/label_camera"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/xs_margin_size"
+            android:id="@+id/btnGaleria"
+            android:text="@string/label_gallery"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="@dimen/preview_image_size_width"
+        android:layout_height="@dimen/preview_image_size_height"
+        android:id="@+id/ivImagePreview"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="visible"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivDeletePicture"
+        app:layout_constraintEnd_toEndOf="@id/ivImagePreview"
+        app:layout_constraintTop_toTopOf="@id/ivImagePreview"
+        android:src="@drawable/ic_close"
+        android:background="@color/white"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layoutProgress"
+        android:orientation="horizontal"
+        android:background="@color/loading_screen_transparency"
+        android:visibility="gone"
+        android:gravity="center">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/progressBarStyleLarge"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
